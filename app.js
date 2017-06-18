@@ -6,7 +6,9 @@ express          = require("express"),
 app              = express();
 
 //APP Config
-mongoose.connect("mongodb://localhost/restful_blog_app");
+// mongoose.connect("mongodb://localhost/restful_blog_app");
+// mongodb://<dbuser>:<dbpassword>@ds129422.mlab.com:29422/blogpost
+mongoose.connect("mongodb://harsh:harsh@ds129422.mlab.com:29422/blogpost");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -52,10 +54,7 @@ app.get("/blogs/new", function(req, res) {
 //================== CREATE ROUTE ==============================
 app.post("/blogs", function(req,res) {
    //create blog
-   console.log(req.body);
    
-   console.log("==============");
-   console.log(req.body);
    Blog.create(req.body.blog, function(err, newBlog) {
        if(err) {
            res.render("new");
