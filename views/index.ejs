@@ -7,7 +7,12 @@
             <% blogs.forEach(function(blog) { %>
                 <div class="item">
                     <div class="image" >
-                        <img src="<%=blog.image %>">    
+                        <!--<img src="<%=blog.image %>">    -->
+                        <video width="320" height="240" controls>
+                          <source src="<%=blog.image %>" type="video/mp4">
+                         
+                        Your browser does not support the video tag.
+                        </video> 
                     </div>
                     <div class="content">
                         <a class="header" href="/blogs/<%=blog._id %>"> <%=blog.title %> </a>    
